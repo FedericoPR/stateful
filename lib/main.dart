@@ -25,6 +25,13 @@ class TareaState extends State<Tarea> {
     });
   }
 
+  void click2() {
+    print("Click2");
+    setState(() {
+      tst['mayus'] = !tst['mayus'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,10 +51,17 @@ class TareaState extends State<Tarea> {
                       onPressed: click,
                       child: Icon(Icons.clear),
                     ),
-                  if(tst['done'])
-                    Text("  "+tst['nombre'].toUpperCase())
+                  if(tst['mayus'])
+                    FlatButton(
+                    onPressed: click2,
+                    child: Text("  "+tst['nombre'].toUpperCase()),
+                    )
                   else
-                    Text("  "+tst['nombre'])
+                    FlatButton(
+                      onPressed: click2,
+                      child: Text("  "+tst['nombre']),
+                    )
+
                 ]
             ),
           );
@@ -59,16 +73,16 @@ class TareaState extends State<Tarea> {
 class MyApp extends StatelessWidget {
   var tar;
 
-  var listatareas = [ {"nombre": "Hola soy una tarea", "done": true},
-    {"nombre": "Hola soy una tarea 2", "done": true},
-    {"nombre": "Hola soy una tarea 3", "done": true},
-    {"nombre": "Hola soy una tarea 4", "done": true},
-    {"nombre": "Hola soy una tarea 5", "done": true},
-    {"nombre": "Hola soy una tarea 6", "done": true},
-    {"nombre": "Hola soy una tarea 7", "done": true},
-    {"nombre": "Hola soy una tarea 8", "done": true},
-    {"nombre": "Hola soy una tarea 9", "done": true},
-    {"nombre": "Hola soy una tarea 10", "done": true}
+  var listatareas = [ {"nombre": "Hola soy una tarea", "done": false, "mayus": false},
+    {"nombre": "Hola soy una tarea 2", "done": true, "mayus": false},
+    {"nombre": "Hola soy una tarea 3", "done": true, "mayus": false},
+    {"nombre": "Hola soy una tarea 4", "done": true, "mayus": false},
+    {"nombre": "Hola soy una tarea 5", "done": true, "mayus": false},
+    {"nombre": "Hola soy una tarea 6", "done": true, "mayus": false},
+    {"nombre": "Hola soy una tarea 7", "done": true, "mayus": false},
+    {"nombre": "Hola soy una tarea 8", "done": true, "mayus": false},
+    {"nombre": "Hola soy una tarea 9", "done": true, "mayus": false},
+    {"nombre": "Hola soy una tarea 10", "done": true, "mayus": false}
   ];
 
   @override
